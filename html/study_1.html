@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue.jsの基本構造</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+    <div id="app">
+        <p>Hello, {{ message }}</p>
+        <p>
+            message count: <input type="text" :value="message.length">
+        </p>
+        <div v-bind:text-content.prop="message"></div>
+        <div :scroll-top.prop="scroll"></div>
+        <p>{{ state }}</p>
+        <pre>{{ $data }}</pre>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js"></script>
+    <script lang="javascript">
+        var state = { count: 0 };
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Vue.js',
+                scroll: 0,
+                state: state
+            },
+            computed: {
+                computedMessage: function() {
+                    return this.message + '!'
+                }
+            },
+            created: function() {
+
+            },
+            methods: {
+                myMethod: function() {
+
+                }
+            },
+        });
+        state.count++;
+    </script>
+</body>
+</html>
